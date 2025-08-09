@@ -24,4 +24,20 @@ public class ChromeTest {
         Assert.assertEquals(driver.getTitle(), "Selenium");
         driver.quit();
     }
+    @Test
+    void openBrowserWithOldVersion() {
+        // Tạo ChromeOptions
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBrowserVersion("129"); // Chỉ định phiên bản Chrome (cần có driver tương ứng)
+
+        // Mở Chrome
+        WebDriver driver = new ChromeDriver(chromeOptions);
+        driver.get("https://www.selenium.dev/");
+
+        // Kiểm tra tiêu đề trang
+        Assert.assertEquals(driver.getTitle(), "Selenium");
+
+        // Đóng trình duyệt
+        driver.quit();
+    }
 }
